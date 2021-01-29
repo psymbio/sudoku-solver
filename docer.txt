@@ -1,0 +1,26 @@
+FROM python:3.8
+
+RUN apt-get update \
+    && apt-get install -y \
+        cmake libsm6 libxext6 libxrender-dev protobuf-compiler \
+    && rm -r /var/lib/apt/lists/*
+# Configure server
+RUN pip3 install --upgrade pip
+# RUN pip3 install -r requirements.txt
+COPY requirements.txt /app/requirements.txt
+
+# Configure server
+RUN set -ex \
+    && pip install --upgrade pip \  
+    && pip3 install --no-cache-dir -r /app/requirements.txt 
+
+# Working directory
+WORKDIR /app
+
+ADD . .
+
+# EXPOSE 8000
+
+CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "core.wsgi:application"]
+
+CMD gunicorn core.wsgi:application --bind 0.0.0.0:$PORT

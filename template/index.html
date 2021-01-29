@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Sudoku Solver</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      colgroup,
+      tbody {
+        border: solid medium;
+      }
+      td {
+        border: solid thin;
+        height: 1.4em;
+        width: 1.4em;
+        text-align: center;
+        font-size: 24px;
+        padding: 0;
+      }
+      td:hover {
+        background-color: gray;
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </header>
+  <body>
+    <div class="top-line"></div>
+    <br />
+    <div class="container">
+      <h1>Sudoku Solver</h1>
+      <hr />
+      <form method="post" enctype="multipart/form-data" action="sudokuSolver">
+        {% csrf_token %}
+        <input id="picture-input" name="filePath" type="file" />
+        <button id="name-button" type="submit" value="Submit">
+          Submit Image
+        </button>
+      </form>
+      <p>   </p><img src="{{filePathDisplay}}" alt="" height="300" width="300"/>
+      <br />
+      <br />
+      <ul>
+        <table align="left">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <tbody></tbody>
+          <tbody>
+            {% for i in solution %}
+            <tr>
+              {% if  forloop.counter0|divisibleby:"3" or  forloop.counter0 == 0%}</tbody><tbody>
+              {% endif %}
+              {% for j in i %}
+              <td>{{ j }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </ul>
+    </div>
+  </body>
+</html>
