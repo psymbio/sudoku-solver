@@ -141,3 +141,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MODEL = tf.keras.models.load_model("savehere")
 
 NUM_DATA = os.path.join(BASE_DIR, '81')
+NUM_DATA_URL = '/81/'

@@ -71,7 +71,7 @@ def squares(img):
             cv2.rectangle(img, (x, y), (x + w, y + h), (0,0,0), 4)
             image_number += 1
 
-def pic_to_sudoku(num_data_dir):
+def pic_to_sudoku():
     sudoku = ""
     for img in sorted(os.listdir(num_data_dir)):
         # print(os.path.join(num_data_dir, img))
@@ -146,7 +146,7 @@ def sudokuSolver(request):
     img = cv2.resize(img, (900, 900))
     squares(img)
     # gray_all()
-    puzzle = pic_to_sudoku(num_data_dir)
+    puzzle = pic_to_sudoku()
     print(len(puzzle))
     l = list(puzzle)
     i = np.reshape(l, (-1, 9))
