@@ -18,6 +18,7 @@ To run the Docker container make sure you have Docker installed.
 How does it work?
 
 Short answer:
+
 ![houghed](working/houghed.jpg)
 ![con](working/con.jpg)
 ![numbers](working/numbers.png)
