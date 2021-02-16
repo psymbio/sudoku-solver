@@ -42,3 +42,5 @@ And then:
 Long answer: <https://psymbio.github.io/posts/sudoku/>
 
 I still am working on it, if you know how I can implement solving sudokus through a ML based approach, you should probably email me before all my hair falls out.
+
+And if you can deploy it, please do.
