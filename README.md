@@ -38,6 +38,7 @@ Short answer:
 +---------+---------+---------+
 ```
 And then:
+
 ![solved](working/solved.png)
 
 Long answer: <https://psymbio.github.io/posts/sudoku/>
