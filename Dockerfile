@@ -52,7 +52,7 @@ RUN pip3 install matplotlib pandas pillow h5py ipykernel jupyter numpy pandas sc
 # Set the working directory of the docker image
 # WORKDIR /app
 RUN rm -v /etc/nginx/nginx.conf
-ADD nginx.conf /etc/nginx/
+ADD nginx.conf /etc/nginx/sites-available/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ADD . .
 # COPY ./nginx.conf /etc/nginx/nginx.conf
